@@ -3,12 +3,14 @@ const { vidOptions } = require('./options');
 const sequelize = require('./db');
 const UserModel = require('./models');
 
+
 const stick = './sticker/sticker.webp'
 
-const token = '6946550307:6554348814:AAFOyoJo5G4oDz6vsMgrNnJeKojRuPpSkFk';
+const token = '6554348814:AAFOyoJo5G4oDz6vsMgrNnJeKojRuPpSkFk';
 // const ytToken = 'AIzaSyC8PrqFSD7LRuZO1utQyQkLjWKLQaBlWlM';
 
 const bot = new TelegramApi(token, { polling: true });
+
 
 
 const start = async () => {
@@ -54,7 +56,7 @@ if (matchedVideos.length > 0) {
         await bot.sendVideo(chatId, matchedVideo.vid);
     }
 } else {
-    return bot.sendMessage(chatId, 'դեռ չունենք նման թեգ ով վիդեո)');
+    return bot.sendMessage(chatId, 'դեռ չունենք նման անվաաննոումով info)');
 }
 
 // Now, collectedVideoIds array contains all the video IDs from matched videos
