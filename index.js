@@ -3,9 +3,9 @@ const { vidOptions } = require('./options');
 const sequelize = require('./db');
 const UserModel = require('./models');
 
-const stick = './sticker/hi.webp'
+const stick = './sticker/sticker.webp'
 
-const token = '6946550307:AAH2ymCbebjBvUzsKXeCHyU7EL6vqnlZUj4';
+const token = '6946550307:6554348814:AAFOyoJo5G4oDz6vsMgrNnJeKojRuPpSkFk';
 // const ytToken = 'AIzaSyC8PrqFSD7LRuZO1utQyQkLjWKLQaBlWlM';
 
 const bot = new TelegramApi(token, { polling: true });
@@ -32,7 +32,7 @@ const start = async () => {
         try {
             if (text === '/start') {
                 await bot.sendSticker(chatId, stick);
-                return bot.sendMessage(chatId, `Բարի Գալուստ Կարգին BOT, ${firstName || username} ջան`);
+                return bot.sendMessage(chatId, `Բարի Գալուստ ${firstName || username} ջան Գիտակ։BOT,🤩`);
             }
 
             // Check if the text matches any video tag (case-insensitive)

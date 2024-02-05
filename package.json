@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "googleapis": "^131.0.0",
-    "node-telegram-bot-api": "^0.52.0",
+    "node-telegram-bot-api": "^0.64.0",
     "nodemon": "^2.0.22",
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.3",
