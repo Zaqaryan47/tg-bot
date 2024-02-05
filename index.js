@@ -30,18 +30,34 @@ const start = async () => {
         const chatId = msg.chat.id;
         const firstName = msg.from.first_name;
         const username = msg.from.username
+        
+        const options = {
+            reply_markup: JSON.stringify(matchedVideos.inline_keyboard),
+        };
+
 
         try {
             if (text === '/start') {
+            
+
+              
+
+
                 await bot.sendSticker(chatId, stick);
-                return bot.sendMessage(chatId, `Բարի Գալուստ ${firstName || username} ջան Գիտակ։BOT,🤩`);
+                return bot.sendMessage(chatId, `Բարի Գալուստ ${firstName || username} ջան Գիտակ։BOT,🤩`, );
+            
+
+
             }
+            
+           
 
             // Check if the text matches any video tag (case-insensitive)
             const matchedVideos = vidOptions.filter((video) => {
                 const lowerCaseText = text.toLowerCase();
                 return video.tag.some((tag) => lowerCaseText.includes(tag.toLowerCase()));
             });
+            
 
           
 // Initialize an array to store video IDs
@@ -52,8 +68,10 @@ const collectedVideoIds = [];
 if (matchedVideos.length > 0) {
     for (const matchedVideo of matchedVideos) {
         // Store the video ID in the array
-        collectedVideoIds.push(matchedVideo.vid);
-        await bot.sendVideo(chatId, matchedVideo.vid);
+        collectedVideoIds.push(matchedVideo.pic);
+        await bot.sendPhoto(chatId, matchedVideo.pic);
+        await bot.sendMessage(chatId,options)
+        
     }
 } else {
     return bot.sendMessage(chatId, 'դեռ չունենք նման անվաաննոումով info)');
@@ -70,6 +88,8 @@ console.log(collectedVideoIds);
     process.on('unhandledRejection', (reason, promise) => {
         console.error('Unhandled Rejection at:', reason.stack || reason);
     });
+    
 };
+
 
 start();
